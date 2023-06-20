@@ -1,0 +1,17 @@
+<div
+  class="timeLine"
+  *ngFor="let time of time"
+  [ngClass]="{ heightNone: time.minuites !== 0 }"
+>
+  <div>
+    <p *ngIf="time.minuites === 0">{{ time.displayName }}</p>
+    <p *ngIf="time.minuites !== 0">&nbsp;</p>
+    <hr
+      id="{{ time.hours }}"
+      [ngClass]="{
+        transparent: time.minuites !== 0,
+        currentTime: checkIfCurrentTime(time)
+      }"
+    />
+  </div>
+</div>
